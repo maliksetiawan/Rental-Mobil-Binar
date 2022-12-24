@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 function PaymentSection() {
     const [clipboard, setClipBoard] = useState();
@@ -8,8 +8,14 @@ function PaymentSection() {
     const [uploadPaymentProof, setUploadPaymentProof] = useState(false);
     const [uploadImage, setUploadImage] = useState();
     const navigate = useNavigate();
-
-
+const {state} = useLocation();
+console.log(state.total_price)
+const formatterRupiah = (price) => {
+    return new Intl.NumberFormat("id-ID", {
+      style: "currency",
+      currency: "IDR",
+    }).format(price);
+  };
     return (
         <section className="mb-5" id="paymentDetail">
             <div className="container">
@@ -42,7 +48,8 @@ function PaymentSection() {
                                     <form>
                                         <label htmlFor='rekening'>Total Bayar</label>
                                         <div className='d-flex'>
-                                            <input disabled value={`Rp.`} id="rekening" className='w-100 px-2 py-1'></input>
+                                            <input disabled value={formatterRupiah(state.total_price)}
+id="rekening" className='w-100 px-2 py-1'></input>
                                             <button className='px-3 btn btn-light' onClick={(e) => {navigator.clipboard.writeText('Rp. 500.000'); e.preventDefault()}}><i className="fa-regular fa-copy"></i></button>
                                         </div>
                                     </form>

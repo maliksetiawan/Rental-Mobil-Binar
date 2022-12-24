@@ -2,14 +2,14 @@ import React, { Fragment } from 'react'
 import { Viewer, Worker } from '@react-pdf-viewer/core'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "bootstrap-icons/font/bootstrap-icons.css";
-
+import { IconName } from "react-icons/fc";
 
 const E_tiket = () => {
     return (
         <Fragment>
             <div className="container mt-2">
                 <div className="text-center pt-2">
-                    <img src="/checklist.png" alt="success"/>
+                    <img src={IconName} alt="success"/>
                     <h3>Pembayaran berhasil!</h3>
                     <p>Tunjukkan invoice ini ke petugas BCR di titik temu.</p>
                 </div>

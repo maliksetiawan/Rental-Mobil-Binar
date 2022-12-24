@@ -218,7 +218,9 @@ function DetailPaymentSection() {
                           "cst-button" +
                           (checkButtonPayment() == true ? " disabled" : "")
                         }
-                        onClick={() => navigate(`/payment/transfer/${id}`)}
+                        onClick={() => navigate(`/payment/transfer/${id}`,{ state: { total_price : detailOrder.total_price
+                        } }
+                        )}
                       >
                         Bayar
                       </button>

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { Fragment, useEffect, useState } from "react";
 import { useParams, useSearchParams, useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -31,11 +32,7 @@ function CarDetailSection() {
   const API_URL = "https://bootcamp-rent-cars.herokuapp.com";
   const getLocalStorage = JSON.parse(localStorage.getItem("user"));
 
-  const {
-    allowedMaxDays,
-    beforeToday,
-    combine,
-  } = DateRangePicker;
+  const { allowedMaxDays, beforeToday, combine } = DateRangePicker;
 
   const onChangeDate = (date) => {
     if (!date) return;
@@ -129,67 +126,32 @@ function CarDetailSection() {
               <div className="row d-flex flex-row-reverse justify-content-evenly mx-1">
                 <div className="col-lg-4">
                   <div className=" row card p-3 d">
-                    <div className="col-12 p-3">
-                      {car.image ? (
-                        <img src={car.image} alt="" style={{ width: "100%" }} />
-                      ) : (
-                        <img
-                          src="/Assets/dummy.png"
-                          alt=""
-                          style={{ width: "100%" }}
-                        />
-                      )}
-                    </div>
+                    <div className="col-12 p-3">{car.image ? <img src={car.image} alt="" style={{ width: "100%" }} /> : <img src="/Assets/dummy.png" alt="" style={{ width: "100%" }} />}</div>
                     <div>
                       <h4>{car.name}</h4>
                       {car.category ? (
                         <p>
-                          <i className="fa-regular fa-user mr-2"></i>{" "}
-                          {car.category}
+                          <i className="fa-regular fa-user mr-2"></i> {car.category}
                         </p>
                       ) : (
                         <p>
-                          <i className="fa-regular fa-user mr-2"></i>tidak ada
-                          data
+                          <i className="fa-regular fa-user mr-2"></i>tidak ada data
                         </p>
                       )}
                     </div>
                     {/* date range */}
 
-                    <p className="info-date">
-                      Tentukan lama sewa mobil (max. 7 hari)
-                    </p>
-                    <DateRangePicker
-                      style={{ width: "100%" }}
-                      onChange={(e) => onChangeDate(e)}
-                      placeholder="Pilih tanggal mulai dan akhir sewa"
-                      disabledDate={combine(allowedMaxDays(7), beforeToday())}
-                      showOneCalendar
-                    />
+                    <p className="info-date">Tentukan lama sewa mobil (max. 7 hari)</p>
+                    <DateRangePicker style={{ width: "100%" }} onChange={(e) => onChangeDate(e)} placeholder="Pilih tanggal mulai dan akhir sewa" disabledDate={combine(allowedMaxDays(7), beforeToday())} showOneCalendar />
                     <div className="d-flex justify-content-between my-3">
                       <h4>Total</h4>
-                      {car.price ? (
-                        <h5>Rp {car.price.toLocaleString("en-US")}/ Hari</h5>
-                      ) : (
-                        <h5>Rp. 0</h5>
-                      )}
+                      {car.price ? <h5>Rp {car.price.toLocaleString("en-US")}/ Hari</h5> : <h5>Rp. 0</h5>}
                     </div>
                     <div className="px-2">
-                      <button
-                        type="submit"
-                        disabled={checkButtonPayment()}
-                        className={
-                          "cst-button" +
-                          (checkButtonPayment() == true ? " disabled" : "")
-                        }
-                        onClick={handleSubmit}
-                      >
+                      <button type="submit" disabled={checkButtonPayment()} className={"cst-button" + (checkButtonPayment() == true ? " disabled" : "")} onClick={handleSubmit}>
                         {loadingButton && (
                           <>
-                            <i
-                              className="fa fa-refresh fa-spin"
-                              style={{ marginRight: "5px" }}
-                            />
+                            <i className="fa fa-refresh fa-spin" style={{ marginRight: "5px" }} />
                             <span> Lanjutkan pembayaran</span>
                           </>
                         )}
@@ -202,9 +164,7 @@ function CarDetailSection() {
                   <h4>Tentang Paket</h4>
                   <h5 className="my-3">Include</h5>
                   <ul className="lh-lg" style={{ listStyleType: "disc" }}>
-                    <li>
-                      Apa saja yang termasuk dalam paket misal durasi max 12 jam
-                    </li>
+                    <li>Apa saja yang termasuk dalam paket misal durasi max 12 jam</li>
                     <li>Sudah termasuk bensin selama 12 jam</li>
                     <li>Sudah termasuk Tiket Wisata </li>
                     <li>Sudah termasuk Tiket Wisata </li>
@@ -212,31 +172,19 @@ function CarDetailSection() {
                   <h5 className="my-3">Exclude</h5>
                   <ul className="lh-lg" style={{ listStyleType: "disc" }}>
                     <li>Tidak termasuk biaya makan sopir Rp 75.000/hari</li>
-                    <li>
-                      Jika overtime lebih dari 12 jam akan ada tambahan biaya Rp
-                      20.000/jam
-                    </li>
+                    <li>Jika overtime lebih dari 12 jam akan ada tambahan biaya Rp 20.000/jam</li>
                     <li>Tidak termasuk akomodasi penginapan</li>
                   </ul>
                   <h5 className="my-3">Refund, Reschedule, Overtime</h5>
                   <ul className="lh-lg" style={{ listStyleType: "disc" }}>
                     <li>Tidak termasuk biaya makan sopir Rp 75.000/hari</li>
-                    <li>
-                      Jika overtime lebih dari 12 jam akan ada tambahan biaya Rp
-                      20.000/jam
-                    </li>
+                    <li>Jika overtime lebih dari 12 jam akan ada tambahan biaya Rp 20.000/jam</li>
                     <li>Tidak termasuk akomodasi penginapan</li>
                     <li>Tidak termasuk biaya makan sopir Rp 75.000/hari</li>
-                    <li>
-                      Jika overtime lebih dari 12 jam akan ada tambahan biaya Rp
-                      20.000/jam
-                    </li>
+                    <li>Jika overtime lebih dari 12 jam akan ada tambahan biaya Rp 20.000/jam</li>
                     <li>Tidak termasuk akomodasi penginapan</li>
                     <li>Tidak termasuk biaya makan sopir Rp 75.000/hari</li>
-                    <li>
-                      Jika overtime lebih dari 12 jam akan ada tambahan biaya Rp
-                      20.000/jam
-                    </li>
+                    <li>Jika overtime lebih dari 12 jam akan ada tambahan biaya Rp 20.000/jam</li>
                     <li>Tidak termasuk akomodasi penginapan</li>
                   </ul>
                 </div>
@@ -244,10 +192,7 @@ function CarDetailSection() {
             </div>
           </section>
         ) : (
-          <h2 className="d-flex justify-content-center m-5">
-            {" "}
-            Mobil Tidak Ditemukan
-          </h2>
+          <h2 className="d-flex justify-content-center m-5"> Mobil Tidak Ditemukan</h2>
         )
       ) : (
         <h2 className="d-flex justify-content-center m-5">Loading...</h2>

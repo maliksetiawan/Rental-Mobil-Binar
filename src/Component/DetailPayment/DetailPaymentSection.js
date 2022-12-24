@@ -1,13 +1,13 @@
+/* eslint-disable no-unused-vars */
 import React, { Fragment } from "react";
 import { useState } from "react";
 import SearchBarPayment from "../SearchBar/SearchBarPayment";
 import "./detailPayment.css";
 import axios from "axios";
 import { useEffect } from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCoffee, faChevronDown, faChevronUp } from '@fortawesome/fontawesome-free-solid'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCoffee, faChevronDown, faChevronUp } from "@fortawesome/fontawesome-free-solid";
 import { useParams, useNavigate } from "react-router-dom";
-
 
 const API_URL = "https://bootcamp-rent-cars.herokuapp.com/customer";
 const getLocalStorage = JSON.parse(localStorage.getItem("user"));
@@ -23,16 +23,16 @@ function DetailPaymentSection() {
   let { id } = useParams();
 
   const toggleDescription = () => {
-    setDetailToggle((current) => (!current))
-    console.log(detailToggle)
-  }
+    setDetailToggle((current) => !current);
+    console.log(detailToggle);
+  };
   const handleClick = (type) => {
     if (type == "BNI") {
-      setIsActive(() => ({  type, active: true }));
+      setIsActive(() => ({ type, active: true }));
     } else if (type == "BCA") {
-      setIsActive(() => ({  type, active: true }));
+      setIsActive(() => ({ type, active: true }));
     } else if (type == "Mandiri") {
-      setIsActive(() => ({  type, active: true }));
+      setIsActive(() => ({ type, active: true }));
     }
   };
 
@@ -64,8 +64,7 @@ function DetailPaymentSection() {
 
   const findDayDifference = (startDate, endDate) => {
     const DAY_UNIT_IN_MILLISECONDS = 24 * 3600 * 1000;
-    const diffMiliSeconds =
-      new Date(endDate).getTime() - new Date(startDate).getTime();
+    const diffMiliSeconds = new Date(endDate).getTime() - new Date(startDate).getTime();
     return diffMiliSeconds / DAY_UNIT_IN_MILLISECONDS;
   };
 
@@ -85,25 +84,12 @@ function DetailPaymentSection() {
         <section className="mb-5" id="detailPayment">
           <div className="container">
             <div className="row justify-content-between">
-              <div style={{ height: '100%' }} className="col-12 col-md-6 card py-4 payment-card">
+              <div style={{ height: "100%" }} className="col-12 col-md-6 card py-4 payment-card">
                 <h5>Pilih Bank Transfer</h5>
-                <p>
-                  Kamu bisa membayar dengan transfer melalui ATM, Internet
-                  Banking atau Mobile Banking
-                </p>
-                <ul
-                  className="list-group list-group-flush"
-                  style={{ border: "none" }}
-                >
+                <p>Kamu bisa membayar dengan transfer melalui ATM, Internet Banking atau Mobile Banking</p>
+                <ul className="list-group list-group-flush" style={{ border: "none" }}>
                   <li className="list-group-item flex">
-                    <button
-                      onClick={() => handleClick("BCA")}
-                      className={
-                        isActive.type == "BCA" && isActive.type
-                          ? "button-bank active"
-                          : "button-bank"
-                      }
-                    >
+                    <button onClick={() => handleClick("BCA")} className={isActive.type == "BCA" && isActive.type ? "button-bank active" : "button-bank"}>
                       <div className="d-flex align-items-center">
                         <div className="bank-text">BCA</div>
                         <div className="bank-text-info">BCA Transfer</div>
@@ -111,14 +97,7 @@ function DetailPaymentSection() {
                     </button>
                   </li>
                   <li className="list-group-item ">
-                    <button
-                      onClick={() => handleClick("BNI")}
-                      className={
-                        isActive.type == "BNI" && isActive.type
-                          ? "button-bank active"
-                          : "button-bank"
-                      }
-                    >
+                    <button onClick={() => handleClick("BNI")} className={isActive.type == "BNI" && isActive.type ? "button-bank active" : "button-bank"}>
                       <div className="d-flex align-items-center">
                         <div className="bank-text">BNI</div>
                         <div className="bank-text-info">BNI Transfer</div>
@@ -126,14 +105,7 @@ function DetailPaymentSection() {
                     </button>
                   </li>
                   <li className="list-group-item">
-                    <button
-                      onClick={() => handleClick("Mandiri")}
-                      className={
-                        isActive.type == "Mandiri" && isActive.type
-                          ? "button-bank active"
-                          : "button-bank"
-                      }
-                    >
+                    <button onClick={() => handleClick("Mandiri")} className={isActive.type == "Mandiri" && isActive.type ? "button-bank active" : "button-bank"}>
                       <div className="d-flex align-items-center">
                         <div className="bank-text">Mandiri</div>
                         <div className="bank-text-info">Mandiri Transfer</div>
@@ -151,30 +123,29 @@ function DetailPaymentSection() {
                   </div>
                   <div className="detail-payment-description">
                     <div className="header-detail d-flex justify-content-between">
-                      <h5>Total <FontAwesomeIcon style={{ cursor: 'pointer' }} onClick={toggleDescription} icon={detailToggle ?faChevronDown : faChevronUp} /> </h5>
+                      <h5>
+                        Total <FontAwesomeIcon style={{ cursor: "pointer" }} onClick={toggleDescription} icon={detailToggle ? faChevronDown : faChevronUp} />{" "}
+                      </h5>
                       <h5>{formatterRupiah(detailOrder.total_price)}</h5>
                     </div>
                   </div>
-                  <div style={{ 
-                    opacity: !detailToggle ? "0" : "1",
-                   transition: "all .2s",
-                   height: !detailToggle ? "0px" : "auto",
-                    visibility: `${!detailToggle ? 'hidden' : 'visible'}` }} className="content-detail mt-3">
+                  <div
+                    style={{
+                      opacity: !detailToggle ? "0" : "1",
+                      transition: "all .2s",
+                      height: !detailToggle ? "0px" : "auto",
+                      visibility: `${!detailToggle ? "hidden" : "visible"}`,
+                    }}
+                    className="content-detail mt-3"
+                  >
                     <div className="content-detail-section">
                       <h5>Harga</h5>
                       <ul className="lh-lg" style={{ listStyleType: "disc" }}>
                         <li className="d-flex justify-content-between mb-1">
                           <p className="">
-                            Sewa Mobil {formatterRupiah(detailCar.price)} X{" "}
-                            {findDayDifference(
-                              detailOrder.start_rent_at,
-                              detailOrder.finish_rent_at
-                            )}{" "}
-                            Hari
+                            Sewa Mobil {formatterRupiah(detailCar.price)} X {findDayDifference(detailOrder.start_rent_at, detailOrder.finish_rent_at)} Hari
                           </p>
-                          <p className="">
-                            {formatterRupiah(detailOrder.total_price)}
-                          </p>
+                          <p className="">{formatterRupiah(detailOrder.total_price)}</p>
                         </li>
                       </ul>
                     </div>
@@ -208,22 +179,16 @@ function DetailPaymentSection() {
                         <h5>Total</h5>
                         <h5>{formatterRupiah(detailOrder.total_price)}</h5>
                       </div>
-                     
                     </div>
                   </div>
                   <button
-                        type="button"
-                        disabled={checkButtonPayment()}
-                        className={
-                          "cst-button" +
-                          (checkButtonPayment() == true ? " disabled" : "")
-                        }
-                        onClick={() => navigate(`/payment/transfer/${id}`,{ state: { total_price : detailOrder.total_price
-                        } }
-                        )}
-                      >
-                        Bayar
-                      </button>
+                    type="button"
+                    disabled={checkButtonPayment()}
+                    className={"cst-button" + (checkButtonPayment() == true ? " disabled" : "")}
+                    onClick={() => navigate(`/payment/transfer/${id}`, { state: { total_price: detailOrder.total_price } })}
+                  >
+                    Bayar
+                  </button>
                 </div>
               </div>
             </div>

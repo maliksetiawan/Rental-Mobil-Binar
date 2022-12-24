@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable no-unused-vars */
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
@@ -21,11 +23,7 @@ function SearchBarPayment({ detailCar }) {
 
   if (!detailCar) return;
   return (
-    <section
-      id="searchBarPayment"
-      className="mb-5  "
-      style={{ marginTop: "-120px" }}
-    >
+    <section id="searchBarPayment" className="mb-5  " style={{ marginTop: "-120px" }}>
       <div className="container ">
         <div className="section-step ">
           <ul className="stepper stepper-horizontal">
@@ -50,10 +48,7 @@ function SearchBarPayment({ detailCar }) {
         <div className=" d-flex row justify-content-center">
           <div className="row"></div>
 
-          <div
-            className="card p-3"
-            style={{ boxShadow: "0 0 10px rgba(0, 0, 0, 0.1)", width: "100%" }}
-          >
+          <div className="card p-3" style={{ boxShadow: "0 0 10px rgba(0, 0, 0, 0.1)", width: "100%" }}>
             <h4>Detail Pesananmu</h4>
             <div className="row mt-3">
               <div className="col-lg-3 d-flex flex-column justify-content-center">
@@ -68,16 +63,12 @@ function SearchBarPayment({ detailCar }) {
 
               <div className="col-lg-3 d-flex flex-column justify-content-center">
                 <label htmlFor="price">Tanggal Mulai Sewa</label>
-                <div className="text-secondary">
-                  {formatDate(detailOrder.start_rent_at)}
-                </div>
+                <div className="text-secondary">{formatDate(detailOrder.start_rent_at)}</div>
               </div>
 
               <div className="col-lg-2 d-flex flex-column justify-content-center">
                 <label htmlFor="status">Tanggal Akhir Sewa</label>
-                <div className="text-secondary">
-                  {formatDate(detailOrder.finish_rent_at)}
-                </div>
+                <div className="text-secondary">{formatDate(detailOrder.finish_rent_at)}</div>
               </div>
 
               <div className="col-lg-1 d-flex align-items-end"></div>

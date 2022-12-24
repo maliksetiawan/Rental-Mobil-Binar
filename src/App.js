@@ -1,4 +1,4 @@
-import logo from "./logo.svg";
+/* eslint-disable react/react-in-jsx-scope */
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import Home from "./Pages/Home";
@@ -10,8 +10,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Search from "./Pages/Search";
 import Login from "./Pages/Login";
 import Signup from "./Pages/Signup";
-import PaymentTransfer from "./Pages/PaymentTransfer";import E_Tiket from './Pages/E_Tiket';
-
+import PaymentTransfer from "./Pages/PaymentTransfer";
+import E_Tiket from "./Pages/E_Tiket";
 
 function App() {
   return (
@@ -22,11 +22,11 @@ function App() {
           <Route path="car">
             <Route index element={<Car />} />
             <Route path=":id" element={<CarDetail />} />
-            <Route path='etiket' element={<E_Tiket />} />
+            <Route path="etiket" element={<E_Tiket />} />
           </Route>
           <Route path="search" element={<Search />} />
           <Route path="payment">
-            <Route path=':id' element={<Payment />}  />
+            <Route path=":id" element={<Payment />} />
             <Route path="transfer/:id" element={<PaymentTransfer />} />
             <Route path="*" element={<NotFound />} />
           </Route>

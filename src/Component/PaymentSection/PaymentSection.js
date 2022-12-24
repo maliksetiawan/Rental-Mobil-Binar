@@ -33,8 +33,8 @@ function PaymentSection() {
                                     <form>
                                         <label htmlFor='rekening'>Nomor Rekening</label>
                                         <div className='d-flex'>
-                                            <input disabled value={54104257877} id="rekening" className='w-100 px-2 py-1'></input>
-                                            <button className='px-3 btn btn-light' onClick={(e) => {navigator.clipboard.writeText(54104257877); e.preventDefault()}}><i className="fa-regular fa-copy"></i></button>
+                                            <input disabled value={123456789} id="rekening" className='w-100 px-2 py-1'></input>
+                                            <button className='px-3 btn btn-light' onClick={(e) => {navigator.clipboard.writeText(123456789); e.preventDefault()}}><i className="fa-regular fa-copy"></i></button>
                                         </div>
                                     </form>
                                 </div>

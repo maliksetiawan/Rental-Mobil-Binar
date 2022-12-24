@@ -23,7 +23,7 @@ function HeroSection({isButtonShow}) {
         <section id="hero" style={{minHeight: '500px'}}>
             <nav className="navbar navbar-expand-lg navbar-light">
                 <div className="container mt-3">
-                    <a className="navbar-brand text-light px-3 ml-3" href="/">BinarRent</a>
+                    <a className="navbar-brand text-light px-3 ml-3" href="/">Binar Challenge Platinum</a>
                     <button onClick={() => setSidebar('show')} className="navbar-toggler" type="button" aria-label='open sidebar'>
                         <span className="navbar-toggler-icon"></span>
                     </button>

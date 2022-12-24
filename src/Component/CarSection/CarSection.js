@@ -56,11 +56,11 @@ function CarSection() {
             <SearchBar setSearchParams={setSearchParams} carName={carName} setCarName={setCarName} carCategory={carCategory} setCarCategory={setCarCategory} carPrice={carPrice} setCarPrice={setCarPrice} carStatus={carStatus} setCarStatus={setCarStatus} />
             <section id="cars">
                 <div className="container">
-                    <div className="d-flex justify-content-end mb-5">
+                    {/* <div className="d-flex justify-content-end mb-5">
                         {currentPage > 1 ? <button className="col-3 btn btn-secondary" onClick={() => setCurrentPage(currentPage-1)}>previous</button> : <button className=" col-3 btn btn-secondary" disabled>previous</button>}
                         <p className="col 2 d-flex justify-content-center align-items-center mb-0">Page {currentPage}</p>
                         {cars && currentPage < pageCount ? <button className=" col-3 btn btn-secondary" onClick={() => setCurrentPage(currentPage+1)}>next</button> : <button className=" col-3 btn btn-secondary" disabled>next</button>}
-                    </div>
+                    </div> */}
                     <div className="row">
                         {
                             !loading ? (

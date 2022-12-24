@@ -10,6 +10,7 @@ function PaymentSection() {
     const navigate = useNavigate();
 const {state} = useLocation();
 console.log(state.total_price)
+
 const formatterRupiah = (price) => {
     return new Intl.NumberFormat("id-ID", {
       style: "currency",
